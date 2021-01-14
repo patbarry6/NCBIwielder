@@ -47,7 +47,7 @@ Pull.sequences<-function(Species = c( "Atheresthes evermanni","Atheresthes stomi
      for (s in 1:length(Species)){
       SpSeqs<-list()
       for (L in 1:length(unlist(Loci[[l]]))){
-        cmd<-paste('sh esearch -db nucleotide -query "',
+        cmd<-paste('esearch -db nucleotide -query "',
                    Loci[[l]][L]," ",LengthRange,
                    ' [SLEN] ',
                    Species[s],' [ORGN]" | efetch -format fasta',sep="")
