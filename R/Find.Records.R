@@ -46,7 +46,7 @@ Find.records<-function(Species=c("Atheresthes evermanni","Atheresthes stomias"),
       for (s in 1:length(Species)){
         LociCts<-vector()
         for (L in 1:length(unlist(Loci[[l]]))){
-        cmd<-paste('esearch -db nucleotide -query "',
+        cmd<-paste('sh esearch -db nucleotide -query "',
                    Loci[[l]][L]," ",LengthRange,
                  ' [SLEN] ',
                  Species[s],' [ORGN]" | grep "Count"',sep="")
