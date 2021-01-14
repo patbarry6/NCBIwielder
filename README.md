@@ -21,7 +21,7 @@ need help don't hesitate to contact me: pdbarry@alaska.edu
 ## Download R package from github
 ```r
 library(devtools)
-install_github('NCBI.Wielder','patbarry6')
+install_github('patbarry6/NCBI.Wielder')
 ```
 
 ## Download blastn and edirect NCBI utilities
