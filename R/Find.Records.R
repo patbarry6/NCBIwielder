@@ -42,7 +42,7 @@ Find.records<-function(Species=c("Atheresthes evermanni","Atheresthes stomias"),
   LocusList<-list()
   for (l in 1:length(LociNames)){
     cat(paste("Working on:\n", LociNames[l],"\n ",sep=""))
-
+SpCts<-vector()
       for (s in 1:length(Species)){
         LociCts<-vector()
         for (L in 1:length(unlist(Loci[[l]]))){
