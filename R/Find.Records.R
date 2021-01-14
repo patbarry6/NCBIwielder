@@ -44,18 +44,15 @@ Find.records<-function(Species=c("Atheresthes evermanni","Atheresthes stomias"),
     cat(paste("Working on:\n", LociNames[l],"\n ",sep=""))
 SpCts<-vector()
       for (s in 1:length(Species)){
-        LociCts<-vector()
+        LociAcc<-list()
         for (L in 1:length(unlist(Loci[[l]]))){
         cmd<-paste('esearch -db nucleotide -query "',
                    Loci[[l]][L]," ",LengthRange,
                  ' [SLEN] ',
-                 Species[s],' [ORGN]" | grep "Count"',sep="")
-        LociCts[L]<-system(cmd,intern=T,wait=T) %>%
-          gsub(pattern = "<Count>|</Count>",replacement="",x=.) %>%
-          str_trim()%>%
-          as.numeric()
+                 Species[s],' [ORGN]" | efetch -format acc',sep="")
+        LociAcc[[L]]<-system(cmd,intern=T,wait=T)
         } #over L loci grouped
-        SpCts[s]<-sum(as.numeric(LociCts),na.rm=F)
+        SpCts[s]<-unlist(LociAcc[[L]])%>%unique()%>%length()
         cat(paste("\t",Species[s],"\n",sep=""))
       } # over s species
     LocusList[[l]]<-SpCts
