@@ -52,7 +52,7 @@ SpCts<-vector()
                  Species[s],' [ORGN]" | efetch -format acc',sep="")
         LociAcc[[L]]<-system(cmd,intern=T,wait=T)
         } #over L loci grouped
-        SpCts[s]<-unlist(LociAcc[[L]])%>%unique()%>%length()
+        SpCts[s]<-unlist(LociAcc)%>%unique()%>%length()
         cat(paste("\t",Species[s],"\n",sep=""))
       } # over s species
     LocusList[[l]]<-SpCts
