@@ -60,5 +60,7 @@ SpCts<-vector()
 
   res<-cbind(Species,do.call(cbind,LocusList))
   colnames(res)<-c("Species",LociNames)
+  
   return(res)
-  }
+  
+}

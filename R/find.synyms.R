@@ -2,7 +2,7 @@
 #'
 #' This function facilitates the search of NCBIs taxonomy db to find species synonyms
 #' @param Species A vector of species names.
-#' @keywords NCBI taxonomy
+#' @keywords NCBI taxonomy species synonyms
 #' @export
 #' @examples
 #' find.synyms()

@@ -1,4 +1,4 @@
-#' Get lineage
+#' Get taxonomy
 #'
 #' This function facilitates getting the taxonomic lineage of a species
 #' @param Species A character vector of species names.

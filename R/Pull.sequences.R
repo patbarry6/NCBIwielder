@@ -1,4 +1,4 @@
-#' Pull nucleotide sequences from ncbi nucleotide database
+#' Pull nucleotide sequences from NCBI nucleotide database
 #'
 #' This function facilitates the download of NCBIs nucleotide db
 #' @param Species A vector of species names.
