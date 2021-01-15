@@ -63,7 +63,7 @@ Pull.sequences<-function(Species = c( "Atheresthes evermanni","Atheresthes stomi
   #we need to remove the duplicates
   cmd <- paste("bash",
     system.file("extdata/RmDupLines.sh",package="NCBI.Wielder",lib.loc=NULL,mustWork=TRUE),
-    paste("NCBI_",LociNames[l],".fasta",sep=""),sep="")
+    paste("NCBI_",LociNames[l],".fasta",sep=""),sep=" ")
  system(cmd,wait=T)
   
   
