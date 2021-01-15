@@ -58,5 +58,14 @@ Pull.sequences<-function(Species = c( "Atheresthes evermanni","Atheresthes stomi
     } # over s species
     writeLines(text=unlist(LocusList),con=paste("NCBI_",LociNames[l],".fasta",sep="")) #write out the locus fasta file
     cat(paste("Fasta file written for locus ",LociNames[l],"\n",sep=""))
+  
+  #now becuase we didn't store acc. numbers for each locus that may sound similar
+  #we need to remove the duplicates
+  cmd <- paste("bash",
+    system.file("extdata/RmDupLines.sh",package="NCBI.Wielder",lib.loc=NULL,mustWork=TRUE),
+    paste("NCBI_",LociNames[l],".fasta",sep=""),sep="")
+ system(cmd,wait=T)
+  
+  
   } #over l loci
 }
