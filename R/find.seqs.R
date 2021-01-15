@@ -8,9 +8,9 @@
 #' @keywords NCBI nucleotide
 #' @export
 #' @examples
-#' find.records()
+#' find.seqs()
 
-find.records<-function(Species=c("Atheresthes evermanni","Atheresthes stomias"),
+find.seqs<-function(Species=c("Atheresthes evermanni","Atheresthes stomias"),
                        Loci=c("Cytb","cytochrome b", "dloop","d loop",
                               "control region", "CR", "COI","COXI",
                               "CO1","COII","COIII","16S","12S","ND5","ND3"),

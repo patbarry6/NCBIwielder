@@ -1,4 +1,4 @@
-# NCBI.Wielder
+# NCBIwielder
 An R package to help manipulate NCBI database information from the command line.
 
 # About the package
@@ -21,7 +21,7 @@ need help don't hesitate to contact me: pdbarry@alaska.edu
 ## Download R package from github
 ```r
 library(devtools)
-install_github('patbarry6/NCBI.Wielder')
+install_github('patbarry6/NCBIwielder')
 ```
 
 ## Download blastn and edirect NCBI utilities
