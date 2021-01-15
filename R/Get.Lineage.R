@@ -7,9 +7,9 @@
 #' @keywords NCBI nucleotide
 #' @export
 #' @examples
-#' Get.lineage()
+#' get.taxonomy()
 
-Get.lineage<-function(Species,NCBI_TaxaIDs,GetBy="species",...){
+get.taxonomy<-function(Species,NCBI_TaxaIDs,GetBy="species",...){
   
   if(GetBy=="species"){
   #Clean up the objects

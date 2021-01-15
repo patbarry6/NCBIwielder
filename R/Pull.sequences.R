@@ -1,4 +1,4 @@
-#' Pull nucleotide sequences
+#' Pull nucleotide sequences from ncbi nucleotide database
 #'
 #' This function facilitates the download of NCBIs nucleotide db
 #' @param Species A vector of species names.
@@ -8,14 +8,14 @@
 #' @keywords NCBI nucleotide
 #' @export
 #' @examples
-#' Pull.sequnces()
+#' pull.sequnces()
 
-Pull.sequences<-function(Species = c( "Atheresthes evermanni","Atheresthes stomias"),
+pull.sequences<-function(Species = c( "Atheresthes evermanni","Atheresthes stomias"),
                          Loci=c("Cytb","cytochrome b", "dloop","d loop","control region", 
                                 "CR", "COI","COXI","CO1","COII","COIII","16S",
                                 "12S","ND5","ND3"),
                          LengthRange="100:20000",
-                         LociGrps=list(1:2,3:6,7:9,10,11,12,13,14,15), ...){
+                         LociGrps=list(1:2,3:6,7:9,10,11,12,13,14,15),...){
   
   if(is.list(LociGrps)){
     GrpLoci=T

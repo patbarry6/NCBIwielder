@@ -1,4 +1,4 @@
-Package: NCBI.Wielder
+Package: NCBIwielder
 Title: An R package for manipulating NCBI tools from the command line.
 Version: 0.0.0.9000
 Authors@R: 
@@ -7,6 +7,9 @@ Authors@R:
            role = c("aut", "cre"),
            email = "pdbarry@alaska.edu")
 Description: Some helpful scripts for manipulating NCBI data.
+Depends:
+    R (>= 2.15),
+    tidyverse
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
