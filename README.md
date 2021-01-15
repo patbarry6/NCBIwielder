@@ -92,3 +92,8 @@ file that explains how to extract the files and
 gives detailed information about the contents. You should 
 definately take a look and understand a bit about how the 
 files are structured. 
+
+My list of things to do:
+* When pulling taxonomy get the correct species name instead of the first hit for the taxa ID in GetLineage.sh
+* Add the option to save all the acc. numbers when we find.seqs()
+* Figure out the passing of commands to the windows subsystem for linux. 
