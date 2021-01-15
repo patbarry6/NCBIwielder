@@ -49,8 +49,8 @@ In the terminal you will want to copy the full path to each utility to the
 and edirect was in the folder ~/Desktop/NCBItools/edirect/bin/esearch /usr/bin/blastn
 I'd use the command:
 ```bash
-sudo cp -s ~/Desktop/NCBItools/ncbi-blast-2.11.0+/bin/blastn /usr/bin/blastn
-sudo cp -s ~/Desktop/NCBItools/edirect/bin/esearch /usr/bin/blastn
+sudo cp -s ~/Desktop/NCBItools/ncbi-blast-2.11.0+/bin/blastn /usr/bin/blastn.sh
+sudo cp -s ~/Desktop/NCBItools/edirect/bin/esearch /usr/bin/edirect.sh
 ```
 # Download the NCBI taxa dump files
 NCBI's taxonomy database has a few files associated with it. Because GitHub
