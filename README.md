@@ -69,14 +69,14 @@ package.
 
 To find the full path to that folder from within R execute the command:
  ```r
-system.file("extdata/GetLineage.sh",package="NCBI.Wielder")%>%
+system.file("extdata/GetLineage.sh",package="NCBIwielder")%>%
   gsub(pattern = "GetLineage.sh",replacement="")
 ```
 Now you can copy those files to the extdata/ folder of the NCBI.Wielder
 package. In R you could do this by
 
  ```r
-Path2Save<-system.file("extdata/GetLineage.sh",package="NCBI.Wielder")%>%
+Path2Save<-system.file("extdata/GetLineage.sh",package="NCBIwielder")%>%
   gsub(pattern = "GetLineage.sh",replacement="")
 Path2names<- Insert the filepath to names.dmp
 Path2nodes <- Insert the filepath to nodes.dmp 
