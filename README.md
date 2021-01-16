@@ -13,7 +13,7 @@ as IT keeps telling me 'use a virtual machine with Linux kernal'.
 # Setup of the package
 The setup is not entirely straightforward. You can install the R package like
 you would normally do from GitHub but becuase there are some large files you
-need to do some fine tunning from the command line. I know not everyone loves 
+need to do some fine-tuning from the command line. I know not everyone loves 
 to do this, so I have tried to make the instructions painfully explicit. If you
 need help don't hesitate to contact me: pdbarry@alaska.edu
 
@@ -89,7 +89,7 @@ system(Cmd2Use)
 Along with the .dmp files is a taxdump_readme.txt
 file that explains how to extract the files and 
 gives detailed information about the contents. You should 
-definately take a look and understand a bit about how the 
+take a look and understand a bit about how the 
 files are structured. 
 
 My list of things to do:
