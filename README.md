@@ -2,10 +2,9 @@
 An R package to help manipulate NCBI database information from the command line.
 
 # About the package
-This package was written because I was repeatadly doing the same type of 
-analysis by copying and pasting big chunks of code. I forsee the lab
-doing more of the same as time goes by and thought that this might save some time
-and potentially other people that don't like writing code might benefit from it.
+This help users query the NCBI databases for nucleotide sequences. You can query the 
+database for a list of taxa and loci and find out how many sequences are available.
+You can pull the fasta formatted sequences for many taxa and loci. 
 Currently the scripts only run on a UNIX operating syste. In the next iteration
 I will figure out how to pass all the commands to the Windows subsystem for 
 linux so that the grep and bash commands can be used on a Windows OS. For now,
