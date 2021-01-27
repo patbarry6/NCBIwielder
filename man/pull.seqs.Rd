@@ -4,11 +4,8 @@
 \alias{pull.seqs}
 \title{Pull nucleotide sequences from NCBI nucleotide database}
 \usage{
-\method{pull}{seqs}(Species = c("Atheresthes evermanni",
-  "Atheresthes stomias"), Loci = c("Cytb", "cytochrome b", "dloop",
-  "d loop", "control region", "CR", "COI", "COXI", "CO1", "COII", "COIII",
-  "16S", "12S", "ND5", "ND3"), LengthRange = "100:20000",
-  LociGrps = list(1:2, 3:6, 7:9, 10, 11, 12, 13, 14, 15), ...)
+\method{pull}{seqs}(Species, Loci, LengthRange = "100:20000", LociGrps,
+  ...)
 }
 \arguments{
 \item{Species}{A vector of species names.}
