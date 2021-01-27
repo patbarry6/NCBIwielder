@@ -5,9 +5,9 @@
 #' @keywords NCBI taxonomy species synonyms
 #' @export
 #' @examples
-#' find.synyms()
+#' find_synyms()
 
-find.synyms<-function(Species, ...){
+find_synyms<-function(Species, ...){
   
   Species <- Species %>%
     str_trim()
@@ -15,7 +15,7 @@ find.synyms<-function(Species, ...){
   #We need to get the taxa ids first
   TaxaIDs<-vector()
   for (s in 1:length(Species)){
-      cmd<-paste("grep '",Species[s],"' ",system.file("extdata/names.dmp",package="NCBI.Wielder",lib.loc=NULL,mustWork=TRUE),sep="")
+      cmd<-paste("grep '",Species[s],"' ",system.file("extdata/names.dmp",package="NCBIwielder",lib.loc=NULL,mustWork=TRUE),sep="")
       #first check to see if there is a single TAXAid
       TaxaIDall<-system(cmd,intern=T,wait=T)%>%
       str_split(., pattern="\t|\t")%>%
@@ -28,7 +28,7 @@ find.synyms<-function(Species, ...){
       } else if(length(TaxaIDall)==1){
           TaxaIDs[s] <- TaxaIDall
       } else if (length(TaxaIDall)>1){
-          cmd<-paste("grep '",Species[s],"' ",system.file("extdata/names.dmp",package="NCBI.Wielder",lib.loc=NULL,mustWork=TRUE),sep="")
+          cmd<-paste("grep '",Species[s],"' ",system.file("extdata/names.dmp",package="NCBIwielder",lib.loc=NULL,mustWork=TRUE),sep="")
           #first check to see if there is a single TAXAid
           TaxaIDtemp<-system(cmd,intern=T,wait=T)%>%
           grep(pattern='scientific name',value=T)%>%
@@ -47,7 +47,7 @@ find.synyms<-function(Species, ...){
 SpNames<-list()
 
 for (s in GoodTaxa){
-  cmd <- paste("grep '^",TaxaIDs[s],"\\s|' ",system.file("extdata/names.dmp",package="NCBI.Wielder",lib.loc=NULL,mustWork=TRUE),sep="")
+  cmd <- paste("grep '^",TaxaIDs[s],"\\s|' ",system.file("extdata/names.dmp",package="NCBIwielder",lib.loc=NULL,mustWork=TRUE),sep="")
   SpNameTemp <- system(cmd, intern=T, wait=T)
   SpNames[[s]]<-SpNameTemp%>%
     grep(x=., "scientific name|synonym",value=T)%>%

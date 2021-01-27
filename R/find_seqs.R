@@ -8,14 +8,12 @@
 #' @keywords NCBI nucleotide
 #' @export
 #' @examples
-#' find.seqs()
+#' find_seqs()
 
-find.seqs<-function(Species=c("Atheresthes evermanni","Atheresthes stomias"),
-                       Loci=c("Cytb","cytochrome b", "dloop","d loop",
-                              "control region", "CR", "COI","COXI",
-                              "CO1","COII","COIII","16S","12S","ND5","ND3"),
+find_seqs<-function(Species,
+                       Loci,
                        LengthRange="100:20000",
-                       LociGrps=list(1:2,3:6,7:9,10,11,12,13,14,15), ...){
+                       LociGrps, ...){
 
   if(is.list(LociGrps)){
     GrpLoci=T

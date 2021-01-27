@@ -8,39 +8,39 @@
 #' @keywords NCBI nucleotide
 #' @export
 #' @examples
-#' pull.seqs()
+#' pull_seqs()
 
-pull.seqs<-function(Species,
+pull_seqs<-function(Species,
                          Loci,
                          LengthRange="100:20000",
                          LociGrps,...){
-  
+
   if(is.list(LociGrps)){
     GrpLoci=T
   } else {
     GrpLoci=T
   }
-  
+
   #Clean up the objects
   Species <- Species %>%
     str_trim()
   Loci <- Loci %>%
     str_trim
-  
+
   #convert loci to list and group the loci by name if you want
   if(GrpLoci==F){
     Loci<-as.list(Loci)
   } else if (GrpLoci==T){
     Loci<-lapply(LociGrps,function(x) Loci[x])
   }
-  
+
   LociNames<-lapply(Loci,"[[",1) %>% gsub(pattern="\\s+",replacement="",x=.)
   names(Loci)<-LociNames
-  
- 
+
+
   for (l in 1:length(LociNames)){
     cat(paste("Working on:\n", LociNames[l],"\n ",sep=""))
-    LocusList<-list() 
+    LocusList<-list()
     count<-1
      for (s in 1:length(Species)){
       SpSeqs<-list()
@@ -56,14 +56,14 @@ pull.seqs<-function(Species,
     } # over s species
     writeLines(text=unlist(LocusList),con=paste("NCBI_",LociNames[l],".fasta",sep="")) #write out the locus fasta file
     cat(paste("Fasta file written for locus ",LociNames[l],"\n",sep=""))
-  
+
   #now becuase we didn't store acc. numbers for each locus that may sound similar
   #we need to remove the duplicates
   cmd <- paste("bash",
-    system.file("extdata/RmDupLines.sh",package="NCBI.Wielder",lib.loc=NULL,mustWork=TRUE),
+    system.file("extdata/RmDupLines.sh",package="NCBIwielder",lib.loc=NULL,mustWork=TRUE),
     paste("NCBI_",LociNames[l],".fasta",sep=""),sep=" ")
  system(cmd,wait=T)
-  
-  
+
+
   } #over l loci
 }

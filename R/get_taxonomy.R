@@ -7,9 +7,9 @@
 #' @keywords NCBI nucleotide
 #' @export
 #' @examples
-#' get.taxonomy()
+#' get_taxonomy()
 
-get.taxonomy<-function(Species,NCBI_TaxaIDs,GetBy="species",...){
+get_taxonomy<-function(Species,NCBI_TaxaIDs,GetBy="species",...){
   
   if(GetBy=="species"){
   #Clean up the objects
@@ -19,7 +19,7 @@ get.taxonomy<-function(Species,NCBI_TaxaIDs,GetBy="species",...){
   #We need to get the taxa ids first
   TaxaIDs<-vector()
   for (s in 1:length(Species)){
-      cmd<-paste("grep '",Species[s],"' ",system.file("extdata/names.dmp",package="NCBI.Wielder",lib.loc=NULL,mustWork=TRUE),sep="")
+      cmd<-paste("grep '",Species[s],"' ",system.file("extdata/names.dmp",package="NCBIwielder",lib.loc=NULL,mustWork=TRUE),sep="")
       #first check to see if there is a single TAXAid
       TaxaIDall<-system(cmd,intern=T,wait=T)%>%
       str_split(., pattern="\t|\t")%>%
@@ -32,7 +32,7 @@ get.taxonomy<-function(Species,NCBI_TaxaIDs,GetBy="species",...){
       } else if(length(TaxaIDall)==1){
           TaxaIDs[s] <- TaxaIDall
       } else if (length(TaxaIDall)>1){
-          cmd<-paste("grep '",Species[s],"' ",system.file("extdata/names.dmp",package="NCBI.Wielder",lib.loc=NULL,mustWork=TRUE),sep="")
+          cmd<-paste("grep '",Species[s],"' ",system.file("extdata/names.dmp",package="NCBIwielder",lib.loc=NULL,mustWork=TRUE),sep="")
           #first check to see if there is a single TAXAid
           TaxaIDtemp<-system(cmd,intern=T,wait=T)%>%
           grep(pattern='scientific name',value=T)%>%
@@ -55,10 +55,10 @@ get.taxonomy<-function(Species,NCBI_TaxaIDs,GetBy="species",...){
   
   for (s in GoodTaxa){
     cmd <- paste("bash",
-    system.file("extdata/GetLineage.sh",package="NCBI.Wielder",lib.loc=NULL,mustWork=TRUE),
+    system.file("extdata/GetLineage.sh",package="NCBIwielder",lib.loc=NULL,mustWork=TRUE),
     TaxaIDs[s],
-    system.file("extdata/names.dmp",package="NCBI.Wielder",lib.loc=NULL,mustWork=TRUE),
-    system.file("extdata/nodes.dmp",package="NCBI.Wielder",lib.loc=NULL,mustWork=TRUE),
+    system.file("extdata/names.dmp",package="NCBIwielder",lib.loc=NULL,mustWork=TRUE),
+    system.file("extdata/nodes.dmp",package="NCBIwielder",lib.loc=NULL,mustWork=TRUE),
     sep=" ")
     Lineage[[s]]<-system(cmd, intern=T, wait=T)
   } 
