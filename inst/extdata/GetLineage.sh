@@ -9,10 +9,17 @@ NAMES="${2}" # We are going to pass these in through R
 NODES="${3}"
 TAXONOMY=""
 
-# Function for extracting the taxa or node number
-get_name_or_taxid()
+# Functions for extracting the taxa or node number
+get_name_or_taxid ()
 {
-grep --max-count=1 ^"${1}" "${2}" | cut -f "${3}"
+SEARCH="^${TAXID}\\t"
+grep "${SEARCH}" "${2}" | grep 'scientific name' | cut -f "${3}"
+}
+
+get_node()
+{
+SEARCH="^${TAXID}\\t"
+grep "${SEARCH}" "${2}" | cut -f "${3}"
 }
 
 # Set the TAXID variable to Sp_TaxID
@@ -23,7 +30,7 @@ while [[ "${TAXID}" != 1 ]] ; do
 # Obtain the scientific name corresponding to a taxid
 NAME=$(get_name_or_taxid "${TAXID}" "${NAMES}" "3")
 # Obtain the parent taxa taxid
-PARENT=$(get_name_or_taxid "${TAXID}" "${NODES}" "3")
+PARENT=$(get_node "${TAXID}" "${NODES}" "3")
 # Build the taxonomy path
 TAXONOMY="${NAME};${TAXONOMY}"
 TAXID="${PARENT}"

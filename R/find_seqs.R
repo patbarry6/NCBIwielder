@@ -45,6 +45,7 @@ SpCts<-vector()
         LociAcc<-list()
         for (L in 1:length(unlist(Loci[[l]]))){
         cmd<-paste('esearch -db nucleotide -query "',
+                 ' [ALL] ',
                    Loci[[l]][L]," ",LengthRange,
                  ' [SLEN] ',
                  Species[s],' [ORGN]" | efetch -format acc',sep="")
