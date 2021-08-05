@@ -46,9 +46,9 @@ pull_seqs<-function(Species,
       SpSeqs<-list()
       for (L in 1:length(unlist(Loci[[l]]))){
         cmd<-paste('esearch -db nucleotide -query "',
-                   Loci[[l]][L],' [ALL] ',LengthRange,
-                   ' [SLEN] ',
-                   Species[s],' [ORGN]" | efetch -format fasta',sep="")
+                   Loci[[l]][L],' [ALL] ',
+                   Species[s],' [ORGN] ',
+                   LengthRange,' [SLEN]" | efetch -format fasta',sep="")
         LocusList[[count]]<-system(cmd,intern=T,wait=T)
         count<-count+1
       } #over L loci grouped

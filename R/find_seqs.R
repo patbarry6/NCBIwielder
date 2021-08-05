@@ -44,10 +44,10 @@ SpCts<-vector()
       for (s in 1:length(Species)){
         LociAcc<-list()
         for (L in 1:length(unlist(Loci[[l]]))){
-        cmd<-paste('esearch -db nucleotide -query "',
-                    Loci[[l]][L],' [ALL] ',LengthRange,
-                 ' [SLEN] ',
-                 Species[s],' [ORGN]" | efetch -format acc',sep="")
+          cmd<-paste('esearch -db nucleotide -query "',
+                     Loci[[l]][L],' [ALL] ',
+                     Species[s],' [ORGN] ',
+                     LengthRange,' [SLEN]" | efetch -format acc',sep="")
         LociAcc[[L]]<-system(cmd,intern=T,wait=T)
         } #over L loci grouped
         SpCts[s]<-unlist(LociAcc)%>%unique()%>%length()
@@ -58,7 +58,7 @@ SpCts<-vector()
 
   res<-cbind(Species,do.call(cbind,LocusList))
   colnames(res)<-c("Species",LociNames)
-  
+
   return(res)
-  
+
 }
